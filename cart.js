@@ -23,7 +23,6 @@ document.onclick = event => {
 const plusProduct = id => {
     localStorage.setItem('Cart', JSON.stringify(cart));
     cart[id]++;
-    //renderCart();
 }
 
 const minusProduct = id => {
@@ -31,19 +30,19 @@ const minusProduct = id => {
         deleteProduct(id);
         return localStorage.setItem('Cart', JSON.stringify(cart));
     }
-
     cart[id]--;
-    //renderCart();
 }
 
 const deleteProduct = id => {
     delete cart[id];
-    // renderCart();
+}
+
+function reloadCart() {
+    location.reload();
 }
 
 function renderCart() {
     let headphones = JSON.parse(localStorage.getItem('headphones'));
-    let wirelessHeadphones = JSON.parse(localStorage.getItem('wirelessHeadphones'));
 
     let products = JSON.parse(localStorage.getItem('Cart'));
     let cards = document.querySelector('.cart-items-list');
@@ -57,11 +56,11 @@ function renderCart() {
                 cards.insertAdjacentHTML('afterbegin',
                     `<li class="cart-item">
                         <div class="product-header">
-                            <img class="product-image" src="${item.src}" alt="">
+                            <img class="product-image" src="${item.src}" alt="product-image">
                             <div class="product-change-amount">
-                                <img class="product-decrease" data-id="${keys[i]}" src="./img/svg/-.svg" alt="">
+                                <img class="product-decrease" data-id="${keys[i]}" src="./img/svg/-.svg" alt="product-decrease">
                                 <span class="product-amount" id="product-amount"> ${products[keys[i]]} </span>
-                                <img class="product-increase" data-id="${keys[i]}" src="./img/svg/+.svg" alt="">
+                                <img class="product-increase" data-id="${keys[i]}" src="./img/svg/+.svg" alt="product-increase">
                             </div>
                         </div>
                         <div class="product-main">
@@ -69,7 +68,7 @@ function renderCart() {
                             <span class="product-price"> ${item.price} ₽ </span>
                         </div>
                         <div class="product-footer">
-                            <img class="product-delete" src="./img/svg/delete.svg" alt="">
+                            <img class="product-delete" src="./img/svg/delete.svg" alt="product-delete">
                             <span class="product-total-price"> ${item.price * products[keys[i]]} ₽ </span>
                         </div>
                     </li>`
@@ -78,7 +77,6 @@ function renderCart() {
             cart[keys[i]] = products[keys[i]];
         };
     });
-
 
     let TOTAL = 0;
     let productsInCart = document.querySelectorAll('.product-total-price');

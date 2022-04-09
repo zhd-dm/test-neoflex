@@ -1,5 +1,4 @@
 let headphones = JSON.parse(localStorage.getItem('headphones'));
-let wirelessHeadphones = JSON.parse(localStorage.getItem('wirelessHeadphones'));
 
 const cards = document.querySelector('.card-list-not-wireless'); // Main cards
 

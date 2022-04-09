@@ -97,6 +97,7 @@
 .cart-purchase {
     height: 114px;
     width: 349px;
+    margin-bottom: 15px;
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     border-radius: 30px;

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/cart-style.css">
+    <script src="scripts/storage.js"></script>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
                             </div>
                             <div class="cart-tip">
                                 <div class="header-tip">
-                                    <span class="header-tip-number"> 2 </span>
+                                    <!-- <span class="header-tip-number"> 2 </span> -->
                                     <img class="header-tip-image" src="./img/svg/ellipse.svg" alt="tip-ellipse">
                                 </div>
                             </div>
@@ -56,20 +57,20 @@
             </div>
             <div class="main-wrapper">
                 <ul class="cart-items-list">
-                    <li class="cart-item">
+                    <!-- <li class="cart-item">
 
                         <div class="product-header">
-                            <img class="product-image" src="./img/airpods.png" alt="">
+                            <img class="product-image" src="./img/earpods.png" alt="">
                             <div class="product-change-amount">
                                 <img class="product-decrease" src="./img/svg/-.svg" alt="">
-                                <span class="product-amount"> 1 </span>
+                                <span class="product-amount" id="product-amount"> 1 </span>
                                 <img class="product-increase" src="./img/svg/+.svg" alt="">
                             </div>
                         </div>
 
 
                         <div class="product-main">
-                            <span class="product-title"> Apple BYZ S852I </span>
+                            <span class="product-title" data-id="S852I"> Apple BYZ S852I </span>
                             <span class="product-price"> 2 927 ₽ </span>
                         </div>
 
@@ -79,42 +80,17 @@
                             <span class="product-total-price"> 2 927 ₽ </span>
                         </div>
 
-                    </li>
-                    <!-- ПЕРЕДЕЛАТЬ -->
-                    <li class="cart-purchase">
-                        <div class="header-total-cart">
-                            <span class="total"> TOTAL </span>
-                            <span class="total"> 111P </span>
-                        </div>
-                        <div class="footer-total-cart">
-                            <span class="checkout"> Go to checkout </span>
-                        </div>
-                    </li>
-                    <li class="cart-item">
-
-                        <div class="product-header">
-                            <img class="product-image" src="./img/airpods.png" alt="">
-                            <div class="product-change-amount">
-                                <img class="product-decrease" src="./img/svg/-.svg" alt="">
-                                <span class="product-amount"> 1 </span>
-                                <img class="product-increase" src="./img/svg/+.svg" alt="">
-                            </div>
-                        </div>
-
-
-                        <div class="product-main">
-                            <span class="product-title"> Apple BYZ S852I </span>
-                            <span class="product-price"> 2 927 ₽ </span>
-                        </div>
-
-
-                        <div class="product-footer">
-                            <img class="product-delete" src="./img/svg/delete.svg" alt="">
-                            <span class="product-total-price"> 2 927 ₽ </span>
-                        </div>
-
-                    </li>
+                    </li> -->
                 </ul>
+                <!-- <div class="cart-purchase">
+                    <div class="header-total-cart">
+                        <span class="total"> TOTAL </span>
+                        <span class="total"> 111P </span>
+                    </div>
+                    <div class="footer-total-cart">
+                        <span class="checkout"> Go to checkout </span>
+                    </div>
+                </div> -->
             </div>
         </div>
     </main>
@@ -186,7 +162,7 @@
             </div>
         </div>
     </footer>
-    <script src="index.js"></script>
+    <script src="cart.js"></script>
 </body>
 
 </html>

@@ -1,86 +1,12 @@
-const headphones = [{
-        title: "Apple BYZ S852I",
-        src: "./img/byz.png",
-        price: "2927",
-        rate: "4.7",
-        width: "221",
-        height: "238"
-    },
-    {
-        title: "Apple EarPods",
-        src: "./img/earpods.png",
-        price: "2327",
-        rate: "4.5",
-        width: "221",
-        height: "238"
-    },
-    {
-        title: "Apple EarPods",
-        src: "./img/earpods-with-case.png",
-        price: "2327",
-        rate: "4.5",
-        width: "219",
-        height: "179"
-    },
-    {
-        title: "Apple BYZ S852I",
-        src: "./img/byz.png",
-        price: "2927",
-        rate: "4.7",
-        width: "221",
-        height: "238"
-    },
-    {
-        title: "Apple EarPods",
-        src: "./img/earpods.png",
-        price: "2327",
-        rate: "4.5",
-        width: "221",
-        height: "238"
-    },
-    {
-        title: "Apple EarPods",
-        src: "./img/earpods-with-case.png",
-        price: "2327",
-        rate: "4.5",
-        width: "219",
-        height: "179"
-    }
-]
-
-const wirelessHeadphones = [{
-        title: "Apple AirPods",
-        src: "./img/airpods.png",
-        price: "9527",
-        rate: "4.7",
-        width: "221",
-        height: "239"
-    },
-    {
-        title: "GERLAX GH-04",
-        src: "./img/gerlax.png",
-        price: "6527",
-        rate: "4.7",
-        width: "221",
-        height: "238"
-    },
-    {
-        title: "BOROFONE BO4",
-        src: "./img/borofone.png",
-        price: "7527",
-        rate: "4.7",
-        width: "201",
-        height: "241"
-    },
-]
-
+let headphones = JSON.parse(localStorage.getItem('headphones'));
+let wirelessHeadphones = JSON.parse(localStorage.getItem('wirelessHeadphones'));
 
 const cards = document.querySelector('.card-list-not-wireless'); // Main cards
-let i = 1;
 
 headphones.forEach(item => {
-    cards.insertAdjacentHTML('beforeend',
-        `<li class="card-item" index="${i}">
+    if (!item.wireless) {
+        cards.insertAdjacentHTML('beforeend',
+            `<li class="card-item">
             <div class="card-logo">
                 <img src="${item.src}" alt="byz" style="width: ${item.width}px; height: ${item.height}px">
             </div>
@@ -98,20 +24,20 @@ headphones.forEach(item => {
                         <img src="./img/svg/rate.svg" alt="rate">
                         <span> ${item.rate} </span>
                     </div>
-                    <a href="#!" class="card-add-to-cart"> Buy </a>
+                    <a href="#!" class="card-add-to-cart" data-id="${item.art}"> Buy </a>
                 </div>
             </div>
          </li>`
-    )
-    i++;
+        );
+    }
 });
 
 const wirelessCards = document.querySelector('.card-list-wireless'); // Main cards
-let j = 1;
 
-wirelessHeadphones.forEach(item => {
-    wirelessCards.insertAdjacentHTML('beforeend',
-        `<li class="card-item" index="${j}">
+headphones.forEach(item => {
+    if (item.wireless) {
+        wirelessCards.insertAdjacentHTML('beforeend',
+            `<li class="card-item">
             <div class="card-logo">
                 <img src="${item.src}" alt="byz" style="width: ${item.width}px; height: ${item.height}px">
             </div>
@@ -129,10 +55,39 @@ wirelessHeadphones.forEach(item => {
                         <img src="./img/svg/rate.svg" alt="rate">
                         <span> ${item.rate} </span>
                     </div>
-                    <a href="#!" class="card-add-to-cart"> Buy </a>
+                    <a href="#!" class="card-add-to-cart" data-id="${item.art}"> Buy </a>
                 </div>
             </div>
          </li>`
-    )
-    j++;
+        );
+    }
 });
+
+let length = 0;
+for (let key in JSON.parse(localStorage.getItem('Cart'))) {
+    length++;
+}
+document.querySelectorAll('.header-tip')[1].insertAdjacentHTML('afterbegin',
+    `<span class="header-tip-number"> ${length} </span>`
+);
+
+let cart = {};
+
+document.onclick = event => {
+    if (event.target.classList.contains('card-add-to-cart')) {
+        plusProduct(event.target.dataset.id);
+    }
+}
+
+const plusProduct = id => {
+    if (!cart[id]) {
+        cart[id] = 1;
+    } else {
+        cart[id]++;
+    }
+    renderCart();
+}
+
+function renderCart() {
+    localStorage.setItem('Cart', JSON.stringify(cart));
+}

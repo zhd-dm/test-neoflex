@@ -148,9 +148,7 @@ a {
 .main-wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
     justify-content: space-between;
-    /* align-items: center; */
 }
 
 .main-title {
@@ -189,6 +187,7 @@ a {
     height: 237px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .card-footer {
@@ -222,10 +221,13 @@ a {
 }
 
 .card-rate {
+    display: flex;
+    align-items: center;
     color: #838383;
 }
 
 .card-add-to-cart {
+    cursor: pointer;
     color: #000000;
     margin-right: 18px;
 }

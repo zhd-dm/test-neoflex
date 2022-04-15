@@ -1,3 +1,6 @@
+@import './reset.css';
+@import './media.css';
+
 /* montserrat-regular - latin */
 
 @font-face {
@@ -58,9 +61,9 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    height: 100%;
     font-family: 'Montserrat';
     font-style: normal;
+    height: 100%;
     font-weight: 600;
     font-size: 17px;
     line-height: normal;

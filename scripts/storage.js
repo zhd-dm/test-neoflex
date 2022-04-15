@@ -1,4 +1,4 @@
-const STORAGE = [{
+const PRODUCTS = [{
         art: "S852I",
         title: "Apple BYZ S852I",
         wireless: false,
@@ -61,5 +61,5 @@ const STORAGE = [{
 ];
 
 if (!JSON.parse(localStorage.getItem('headphones'))) {
-    localStorage.setItem('headphones', JSON.stringify(STORAGE));
+    localStorage.setItem('headphones', JSON.stringify(PRODUCTS));
 };

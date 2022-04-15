@@ -20,36 +20,38 @@ function renderPageCart() {
     let productsInCart = JSON.parse(localStorage.getItem('Cart'));
     let cards = document.querySelector('.cart-items-list');
 
-    headphones.forEach(item => {
-        // keys - art
-        // productsInCart[keys[i]] - count
-        keys = Object.keys(productsInCart)
-        for (let i = 0, l = keys.length; i < l; i++) {
-            if (keys[i] == item.art && productsInCart[keys[i]] > 0) {
-                cards.insertAdjacentHTML('afterbegin',
-                    `<li class="cart-item">
-                        <div class="product-header">
-                            <img class="product-image" src="${item.src}" alt="product-image">
-                            <div class="product-change-amount">
-                                <img class="product-decrease" data-id="${keys[i]}" src="./img/svg/-.svg" alt="product-decrease">
-                                <span class="product-amount" id="product-amount"> ${productsInCart[keys[i]]} </span>
-                                <img class="product-increase" data-id="${keys[i]}" src="./img/svg/+.svg" alt="product-increase">
+    if (localStorage.getItem('Cart')) {
+        headphones.forEach(item => {
+            // keys - art
+            // productsInCart[keys[i]] - count
+            keys = Object.keys(productsInCart)
+            for (let i = 0, l = keys.length; i < l; i++) {
+                if (keys[i] == item.art && productsInCart[keys[i]] > 0) {
+                    cards.insertAdjacentHTML('afterbegin',
+                        `<li class="cart-item">
+                            <div class="product-header">
+                                <img class="product-image" src="${item.src}" alt="product-image">
+                                <div class="product-change-amount">
+                                    <img class="product-decrease" data-id="${keys[i]}" src="./img/svg/-.svg" alt="product-decrease">
+                                    <span class="product-amount" id="product-amount"> ${productsInCart[keys[i]]} </span>
+                                    <img class="product-increase" data-id="${keys[i]}" src="./img/svg/+.svg" alt="product-increase">
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-main">
-                            <span class="product-title"> ${item.title} </span>
-                            <span class="product-price"> ${item.price} ₽ </span>
-                        </div>
-                        <div class="product-footer">
-                            <img class="product-delete" src="./img/svg/delete.svg" alt="product-delete">
-                            <span class="product-total-price"> ${item.price * productsInCart[keys[i]]} ₽ </span>
-                        </div>
-                    </li>`
-                );
+                            <div class="product-main">
+                                <span class="product-title"> ${item.title} </span>
+                                <span class="product-price"> ${item.price} ₽ </span>
+                            </div>
+                            <div class="product-footer">
+                                <img class="product-delete" src="./img/svg/delete.svg" alt="product-delete">
+                                <span class="product-total-price"> ${item.price * productsInCart[keys[i]]} ₽ </span>
+                            </div>
+                        </li>`
+                    );
+                };
+                cart[keys[i]] = productsInCart[keys[i]];
             };
-            cart[keys[i]] = productsInCart[keys[i]];
-        };
-    });
+        });
+    }
 
     let TOTAL = 0;
     let totalPrice = document.querySelectorAll('.product-total-price');
@@ -70,6 +72,7 @@ function renderPageCart() {
     );
 }
 
+
 document.onclick = event => {
     if (event.target.classList.contains('product-increase')) {
         plusProduct(event.target.dataset.id);
@@ -84,9 +87,9 @@ const plusProduct = id => {
 
     let condition = {
         id,
-        method: "plus"
+        method: 'plus'
     }
-    reloadCart(condition);
+    console.log(condition);
 }
 
 const minusProduct = id => {
@@ -98,9 +101,9 @@ const minusProduct = id => {
 
     let condition = {
         id,
-        method: "minus"
+        method: 'minus'
     }
-    reloadCart(condition);
+    console.log(condition);
 }
 
 const deleteProduct = id => {
@@ -108,9 +111,9 @@ const deleteProduct = id => {
 
     let condition = {
         id,
-        method: "plus"
+        method: 'delete'
     }
-    reloadCart(condition);
+    console.log(condition);
 }
 
 

@@ -88,5 +88,8 @@ const plusProduct = id => {
 }
 
 function renderCart() {
+    // if (localStorage.getItem('Cart')) {
+    // console.log((JSON.parse(localStorage.getItem('Cart'))));
+    // }
     localStorage.setItem('Cart', JSON.stringify(cart));
 }

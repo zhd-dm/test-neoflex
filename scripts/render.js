@@ -106,6 +106,5 @@ footer.insertAdjacentHTML('afterbegin',
                     </ul>
                 </div>
             </div>
-        </div>
-                    `
+        </div>`
 );

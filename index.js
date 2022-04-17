@@ -62,14 +62,6 @@ headphones.forEach(item => {
     }
 });
 
-let length = 0;
-for (let key in JSON.parse(localStorage.getItem('Cart'))) {
-    length++;
-}
-document.querySelectorAll('.header-tip')[1].insertAdjacentHTML('afterbegin',
-    `<span class="header-tip-number"> ${length} </span>`
-);
-
 let cart = {};
 
 document.onclick = event => {
@@ -84,12 +76,13 @@ const plusProduct = id => {
     } else {
         cart[id]++;
     }
-    renderCart();
+    let length = Object.keys(cart).length;
+    renderTipCart(length);
 }
 
-function renderCart() {
-    // if (localStorage.getItem('Cart')) {
-    // console.log((JSON.parse(localStorage.getItem('Cart'))));
-    // }
+function renderTipCart(length) {
+    let numberTipCart = document.querySelector('.header-tip.cart span').innerHTML;
+    numberTipCart = length;
+    console.log(numberTipCart)
     localStorage.setItem('Cart', JSON.stringify(cart));
 }

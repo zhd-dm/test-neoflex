@@ -1,11 +1,3 @@
-let length = 0;
-for (let key in JSON.parse(localStorage.getItem('Cart'))) {
-    length++;
-}
-document.querySelectorAll('.header-tip')[1].insertAdjacentHTML('afterbegin',
-    `<span class="header-tip-number"> ${length} </span>`
-);
-
 window.onstorage = () => {
     console.log(JSON.parse(window.localStorage.getItem('Cart')));
 };
@@ -157,9 +149,3 @@ function reloadCart(condition) {
     //     </div>`
     // );
 }
-
-document.addEventListener('storage', () => {
-    // When local storage changes, dump the list to
-    // the console.
-    console.log(JSON.parse(localStorage.getItem('Cart')));
-});

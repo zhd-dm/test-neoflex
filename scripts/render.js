@@ -21,14 +21,13 @@ header.insertAdjacentHTML('afterbegin',
                     </li>
                     <li class="header-tips">
                         <div class="like-tip">
-                            <div class="header-tip">
+                            <div class="header-tip like">
                                 <span class="header-tip-number"> 1 </span>
                                 <img class="header-tip-image" src="./img/svg/ellipse.svg" alt="tip-ellipse">
                             </div>
                         </div>
                         <div class="cart-tip">
-                            <div class="header-tip">
-                                <!-- <span class="header-tip-number"> 2 </span> -->
+                            <div class="header-tip cart">
                                 <img class="header-tip-image" src="./img/svg/ellipse.svg" alt="tip-ellipse">
                             </div>
                         </div>

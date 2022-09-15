@@ -109,43 +109,4 @@ const deleteProduct = id => {
 }
 
 
-function reloadCart(condition) {
-    // console.log(item)
-
-    // console.log(document.querySelectorAll('data-id')) 
-
-    // let headphones = JSON.parse(localStorage.getItem('headphones'));
-
-    // let productsInCart = JSON.parse(localStorage.getItem('Cart'));
-    // let cards = document.querySelector('.cart-items-list');
-
-    // headphones.forEach(item => {
-    //     // keys - art
-    //     // productsInCart[keys[i]] - count
-    //     keys = Object.keys(productsInCart)
-    //     for (let i = 0, l = keys.length; i < l; i++) {
-    //         if (keys[i] == item.art && productsInCart[keys[i]] > 0) {
-
-    //         };
-    //         cart[keys[i]] = productsInCart[keys[i]];
-    //     };
-    // });
-
-    // let TOTAL = 0;
-    // let totalPrice = document.querySelectorAll('.product-total-price');
-    // for (i = 0; i < totalPrice.length; i++) {
-    //     TOTAL += +totalPrice[i].innerHTML.replace(/[^0-9]/g, "");
-    // }
-
-    // cards.insertAdjacentHTML('afterend',
-    //     `<div class="cart-purchase">
-    //         <div class="header-total-cart">
-    //             <span class="total"> TOTAL </span>
-    //             <span class="total"> ${TOTAL} ₽ </span>
-    //         </div>
-    //         <div class="footer-total-cart">
-    //             <span class="checkout"> Go to checkout </span>
-    //         </div>
-    //     </div>`
-    // );
-}
+function reloadCart(condition) {}

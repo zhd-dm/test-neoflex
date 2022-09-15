@@ -57,7 +57,7 @@ const PRODUCTS = [{
         rate: "4.7",
         width: "201",
         height: "241"
-    },
+    }
 ];
 
 if (!JSON.parse(localStorage.getItem('headphones'))) {
